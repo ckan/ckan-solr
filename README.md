@@ -1,0 +1,32 @@
+# ckan-solr-dev
+
+Pre-configured Solr Docker images for rapid CKAN development. You can get a local Solr instance targeting a specific CKAN version by running the following command:
+
+    docker run --name ckan-solr-dev -p 8983:8983 -d openknowledge/ckan-solr-dev:2.9
+
+The following versions are available as different image tags:
+
+| CKAN Version | Docker tag |
+| --- | --- |
+| 2.6 | openknowledge/ckan-solr-dev:2.6 |
+| 2.7 | openknowledge/ckan-solr-dev:2.7 |
+| 2.8 | openknowledge/ckan-solr-dev:2.8 |
+| 2.9 | openknowledge/ckan-solr-dev:2.9 |
+| master (*) | openknowledge/ckan-solr-dev:master |
+
+(*) The `master` image is not automatically updated and might be out of date
+
+All these images expose the CKAN Solr endpoint at http://localhost:8983/solr/ckan.
+
+
+Additionally, there is a `multi` image which contains cores for all CKAN Versions in the same Solr server:
+
+    docker run --name ckan-solr-dev -p 8983:8983 -d openknowledge/ckan-solr-dev:multi
+
+This will expose the following Solr endpoints:
+
+http://localhost:8983/solr/ckan-2.6
+http://localhost:8983/solr/ckan-2.7
+http://localhost:8983/solr/ckan-2.8
+http://localhost:8983/solr/ckan-2.9
+http://localhost:8983/solr/master
