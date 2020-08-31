@@ -25,8 +25,8 @@ Additionally, there is a `multi` image which contains cores for all CKAN Version
 
 This will expose the following Solr endpoints:
 
-http://localhost:8983/solr/ckan-2.6
-http://localhost:8983/solr/ckan-2.7
-http://localhost:8983/solr/ckan-2.8
-http://localhost:8983/solr/ckan-2.9
-http://localhost:8983/solr/master
+* http://localhost:8983/solr/ckan-2.6
+* http://localhost:8983/solr/ckan-2.7
+* http://localhost:8983/solr/ckan-2.8
+* http://localhost:8983/solr/ckan-2.9
+* http://localhost:8983/solr/master
