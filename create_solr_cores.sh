@@ -13,7 +13,7 @@ function create_core() {
     SOLR_CORE=$1
     CKAN_VERSION=$2
 
-    if [ $SOLR_CORE == 'master' ]
+    if [ $CKAN_VERSION == 'master' ]
     then
         SCHEMA_URL="https://raw.githubusercontent.com/ckan/ckan/master/ckan/config/solr/schema.xml"
     else
