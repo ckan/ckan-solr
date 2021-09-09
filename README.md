@@ -16,7 +16,7 @@ The following versions are available as different image tags:
 
 (*) The `master` image is not automatically updated and might be out of date
 
-All these images expose the CKAN Solr endpoint at http://localhost:8983/solr/ckan.
+All these images expose the CKAN Solr endpoint at http://localhost:8983/solr/ckan, so that's what you should set the value of `solr_url` in your ini file to.
 
 
 Additionally, there is a `multi` image which contains cores for all CKAN Versions in the same Solr server:
