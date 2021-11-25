@@ -6,13 +6,13 @@ Pre-configured Solr Docker images for rapid CKAN development. You can get a loca
 
 The following versions are available as different image tags:
 
-| CKAN Version | Docker tag |
-| --- | --- |
-| 2.6 | ckan/ckan-solr-dev:2.6 |
-| 2.7 | ckan/ckan-solr-dev:2.7 |
-| 2.8 | ckan/ckan-solr-dev:2.8 |
-| 2.9 | ckan/ckan-solr-dev:2.9 |
-| master (*) | ckan/ckan-solr-dev:master |
+| CKAN Version | Solr version | Docker tag |
+| --- | --- | --- |
+| 2.6 | Solr 6 | ckan/ckan-solr-dev:2.6 |
+| 2.7 | Solr 6 | ckan/ckan-solr-dev:2.7 |
+| 2.8 | Solr 6 | ckan/ckan-solr-dev:2.8 |
+| 2.9 | Solr 6 | ckan/ckan-solr-dev:2.9 |
+| master (*) | Solr 8 | ckan/ckan-solr-dev:master |
 
 (*) The `master` image is not automatically updated and might be out of date
 
@@ -30,6 +30,21 @@ This will expose the following Solr endpoints:
 * http://localhost:8983/solr/ckan-2.8
 * http://localhost:8983/solr/ckan-2.9
 * http://localhost:8983/solr/master
+
+### Building the images
+
+For Solr 6 based images (ie CKAN 2.6 to 2.9), go to the `solr-6` directory and use the Makefile included:
+
+    # Default version in 2.9
+    make build  
+    make build CKAN_VERSION=2.8 
+    make build-multi
+
+For the Solr 8 based image (ie CKAN 2.10), run:
+
+    # TODO: update tag with actual version
+    docker build -t ckan/ckan-solr-dev:master solr-8
+
 
 ### Use your own configuration files
 
