@@ -31,7 +31,7 @@ This will expose the following Solr endpoints:
 * http://localhost:8983/solr/ckan-2.9
 * http://localhost:8983/solr/master
 
-### Additional info
+### Use your own configuration files
 
 If you want to play around with the solr config files you can copy them from the container to your local host and then run the container with a bind mount.
 
@@ -41,7 +41,7 @@ If you want to play around with the solr config files you can copy them from the
 
 2. Copy the config file of the target core to your machine (eg `ckan-2.9`):
 
-       docker cp ckan-solr-dev:/opt/solr/server/solr/ckan-2.9/conf ./conf
+       docker cp ckan-solr-dev:/opt/solr/server/solr/ckan-2.9/conf ./my_conf
 
 3. Stop the container:
 
@@ -49,7 +49,7 @@ If you want to play around with the solr config files you can copy them from the
 
 4. Run the container with a bind mount:
 
-       docker run -p 8983:8983 --mount type=bind,source="$(pwd)"/conf,target=/opt/solr/server/solr/ckan-2.9/conf -d ckan/ckan-solr-dev:multi
+       docker run -p 8983:8983 --mount type=bind,source="$(pwd)"/my_conf,target=/opt/solr/server/solr/ckan-2.9/conf -d ckan/ckan-solr-dev:multi
 
 5. Edit your local files
 
