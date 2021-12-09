@@ -13,12 +13,7 @@ function create_core() {
     SOLR_CORE=$1
     CKAN_VERSION=$2
 
-    if [ $CKAN_VERSION == 'master' ]
-    then
-        SCHEMA_URL="https://raw.githubusercontent.com/ckan/ckan/master/ckan/config/solr/schema.xml"
-    else
-        SCHEMA_URL="https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckan/config/solr/schema.xml"
-    fi
+    SCHEMA_URL="https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckan/config/solr/schema.xml"
 
     echo "Creating Solr core named '$SOLR_CORE' with CKAN version $CKAN_VERSION"
 
@@ -53,12 +48,7 @@ then
 else
     for CKAN_VERSION in ${CKAN_VERSIONS[@]}
     do
-        if [ $CKAN_VERSION == 'master' ]
-        then
-            SOLR_CORE="master"
-        else
-            SOLR_CORE="ckan-$CKAN_VERSION"
-        fi
+        SOLR_CORE="ckan-$CKAN_VERSION"
         create_core $SOLR_CORE $CKAN_VERSION
     done
 fi
