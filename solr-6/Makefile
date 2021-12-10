@@ -15,3 +15,7 @@ build:	## Build a Solr image for a specific CKAN version eg `make build CKAN_VER
 
 build-multi: ## Build a single Solr image with all CKAN versions
 	make build CKAN_VERSION=$(ALL_CKAN_VERSIONS) TAG_NAME="ckan/ckan-solr:multi-solr6"
+
+push: ## Push an image to the Docker registry, `make push CKAN_VERSION=2.8` (default is 2.9)
+	docker push $(TAG_NAME)
+	docker push $(TAG_NAME_LEGACY)
