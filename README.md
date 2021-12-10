@@ -6,18 +6,15 @@ Pre-configured Solr Docker images for CKAN. You can get a local Solr instance ta
 
 The following versions are available as different image tags:
 
-| CKAN Version | Solr version | Docker tag |
-| --- | --- | --- |
-| 2.7 | Solr 6 | `ckan/ckan-solr:2.7`,  `ckan/ckan-solr-dev:2.7` |
-| 2.8 | Solr 6 | `ckan/ckan-solr:2.8`,  `ckan/ckan-solr-dev:2.8` |
-| 2.9 | Solr 6 | `ckan/ckan-solr:2.9`,  `ckan/ckan-solr-dev:2.9` |
-| 2.10 [1] | Solr 8 | `ckan/ckan-solr:2.10` |
-| master [2] | Solr 8 | `ckan/ckan-solr:master` |
-
-_Note_: The `ckan/ckan-solr-dev:*` tags are deprecated, and only kept for backwards compatibility.
-
-[1] The `ckan/ckan-solr:2.10` is also compatible with CKAN 2.9 instances that run at least version 2.9.5
-[2] The `master` image is not automatically updated and might be out of date
+| CKAN Version | Solr version | Docker tag | Legacy Docker tags | Notes |
+| --- | --- | --- | --- |
+| 2.7 | Solr 6 | `ckan/ckan-solr:2.7` |  `ckan/ckan-solr-dev:2.7` | |
+| 2.8 | Solr 6 | `ckan/ckan-solr:2.8` |  `ckan/ckan-solr-dev:2.8` | |
+| 2.8 | Solr 8 | `ckan/ckan-solr:2.8-solr8` | | Requires at least CKAN 2.8.10 |
+| 2.9 | Solr 6 | `ckan/ckan-solr:2.9` | |  `ckan/ckan-solr-dev:2.9` | |
+| 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8` | | Requires at least CKAN 2.9.5 |
+| 2.10 | Solr 8 | `ckan/ckan-solr:2.10` | | |
+| master | Solr 8 | `ckan/ckan-solr:master` | | The `master` image is not automatically updated and might be out of date |
 
 All these images expose the CKAN Solr endpoint at http://localhost:8983/solr/ckan, so that's what you should set the value of `solr_url` in your ini file to.
 
@@ -40,13 +37,17 @@ There is no multi image for Solr 8 yet.
 For Solr 6 based images (ie CKAN 2.6 to 2.9), go to the `solr-6` directory and use the Makefile included:
 
     # Default version in 2.9
-    make build  
-    make build CKAN_VERSION=2.8 
+    make build
+    make build CKAN_VERSION=2.8
     make build-multi
 
-For the Solr 8 based image (ie CKAN 2.10), run:
+For the Solr 8 based image (ie CKAN 2.10), go to the `solr-6` directory and use the Makefile included:
 
-    docker build -t ckan/ckan-solr:2.10 solr-8
+    # Default version in 2.10
+    make build
+    make build CKAN_VERSION=2.9
+
+Note that pre-CKAN 2.10 images use tags with a `-solr8` suffix, ie `ckan/ckan-solr:2.9-solr8`
 
 
 ### Use your own configuration files
