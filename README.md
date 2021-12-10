@@ -2,16 +2,16 @@
 
 Pre-configured Solr Docker images for CKAN. You can get a local Solr instance targeting a specific CKAN version by running the following command:
 
-    docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr-dev:2.9
+    docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:2.9
 
 The following versions are available as different image tags:
 
 | CKAN Version | Solr version | Docker tag | Legacy Docker tags | Notes |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | 2.7 | Solr 6 | `ckan/ckan-solr:2.7` |  `ckan/ckan-solr-dev:2.7` | |
 | 2.8 | Solr 6 | `ckan/ckan-solr:2.8` |  `ckan/ckan-solr-dev:2.8` | |
 | 2.8 | Solr 8 | `ckan/ckan-solr:2.8-solr8` | | Requires at least CKAN 2.8.10 |
-| 2.9 | Solr 6 | `ckan/ckan-solr:2.9` | |  `ckan/ckan-solr-dev:2.9` | |
+| 2.9 | Solr 6 | `ckan/ckan-solr:2.9` | `ckan/ckan-solr-dev:2.9` | |
 | 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8` | | Requires at least CKAN 2.9.5 |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10` | | |
 | master | Solr 8 | `ckan/ckan-solr:master` | | The `master` image is not automatically updated and might be out of date |
