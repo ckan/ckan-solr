@@ -9,14 +9,14 @@ help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 build:	## Build a Solr 8 image for a specific CKAN version, `make build CKAN_VERSION=2.9` (default is 2.10)
-ifeq ($(CKAN_VERSION),2.10)
+ifeq ($(CKAN_VERSION),$(filter $(CKAN_VERSION),2.10 master))
 	docker build -t $(TAG_NAME) .
 else
 	docker build -t $(TAG_NAME_LEGACY) .
 endif
 
 push: ## Push an image to the Docker registry, `make push CKAN_VERSION=2.9` (default is 2.10)
-ifeq ($(CKAN_VERSION),2.10)
+ifeq ($(CKAN_VERSION),$(filter $(CKAN_VERSION),2.10 master))
 	docker push $(TAG_NAME)
 else
 	docker push $(TAG_NAME_LEGACY)
