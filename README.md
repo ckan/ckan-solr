@@ -1,6 +1,11 @@
 # ckan-solr
 
-Pre-configured Solr Docker images for CKAN. You can get a local Solr instance targeting a specific CKAN version by running the following command:
+Pre-configured Solr Docker images for CKAN.
+
+**Note:** These images are not vulnerable to CVE-2021-44228 / Log4J2 as are built on top of [patched upstream Solr images](https://github.com/docker-solr/docker-solr#readme).
+
+
+You can get a local Solr instance targeting a specific CKAN version by running the following command:
 
     docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:2.9
 

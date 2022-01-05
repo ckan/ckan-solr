@@ -2,8 +2,8 @@ FROM solr:8
 
 EXPOSE 8983
 
-# TODO: Update with master / new release branch when merged
-ARG CKAN_BRANCH="solr-8.0"
+# TODO: Update with new release branch when merged
+ARG CKAN_BRANCH="master"
 
 ENV SOLR_CONFIG_DIR="/opt/solr/server/solr/configsets"
 ENV SOLR_SCHEMA_FILE="$SOLR_CONFIG_DIR/ckan/conf/managed-schema"
