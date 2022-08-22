@@ -45,7 +45,7 @@ For Solr 6 based images (ie CKAN 2.6 to 2.9), go to the `solr-6` directory and u
     make build CKAN_VERSION=2.8
     make build-multi
 
-For the Solr 8 based image (ie CKAN 2.10), go to the `solr-6` directory and use the Makefile included:
+For the Solr 8 based image (ie CKAN 2.10), go to the `solr-8` directory and use the Makefile included:
 
     # Default version in 2.10
     make build
