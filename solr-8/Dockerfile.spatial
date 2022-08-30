@@ -37,7 +37,7 @@ ENV SOLR_RPT_FIELD_DEFINITION '<fieldType name="location_rpt"   class="solr.Spat
     maxDistErr="0.001"              \
     distanceUnits="kilometers" />'
 
-ENV SOLR_RPT_FIELD '<field name="spatial_geom"  type="location_rpt" indexed="true" multiValued="true" />'
+ENV SOLR_RPT_FIELD '<field name="spatial_geom" type="location_rpt" indexed="true" multiValued="true" />'
 
 RUN sed -i "/<types>/a $SOLR_RPT_FIELD_DEFINITION" $SOLR_SCHEMA_FILE
 RUN sed -i "/<fields>/a $SOLR_RPT_FIELD" $SOLR_SCHEMA_FILE
@@ -46,7 +46,7 @@ RUN sed -i "/<fields>/a $SOLR_RPT_FIELD" $SOLR_SCHEMA_FILE
 ENV SOLR_BBOX_FIELD_DEFINITION '<fieldType name="bbox" class="solr.BBoxField"  \
     geo="true" distanceUnits="kilometers" numberType="pdouble" />'
 
-ENV SOLR_BBOX_FIELD '<field name="bbox" type="bbox" />'
+ENV SOLR_BBOX_FIELD '<field name="spatial_bbox" type="bbox" />'
 
 RUN sed -i "/<types>/a $SOLR_BBOX_FIELD_DEFINITION" $SOLR_SCHEMA_FILE
 RUN sed -i "/<fields>/a $SOLR_BBOX_FIELD" $SOLR_SCHEMA_FILE
