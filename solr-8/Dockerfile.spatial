@@ -24,7 +24,7 @@ ADD https://raw.githubusercontent.com/ckan/ckan/$CKAN_BRANCH/ckan/config/solr/sc
 # Install JTS JAR file
 ADD https://repo1.maven.org/maven2/org/locationtech/jts/jts-core/$JTS_VERSION/jts-core-$JTS_VERSION.jar \
     $JTS_JAR_FILE
-RUN chmod 644 $JTS_JAR_FILE    
+RUN chmod 644 $JTS_JAR_FILE
 
 # Add the spatial field type definitions and fields
 
@@ -42,18 +42,17 @@ ENV SOLR_RPT_FIELD '<field name="spatial_geom" type="location_rpt" indexed="true
 RUN sed -i "/<types>/a $SOLR_RPT_FIELD_DEFINITION" $SOLR_SCHEMA_FILE
 RUN sed -i "/<fields>/a $SOLR_RPT_FIELD" $SOLR_SCHEMA_FILE
 
-## BBoxField
-ENV SOLR_BBOX_FIELD_DEFINITION '<fieldType name="bbox" class="solr.BBoxField"  \
-    geo="true" distanceUnits="kilometers" numberType="pdouble" />'
+## BBox
+ENV SOLR_BBOX_FIELDS '<field name="bbox_area" type="float" indexed="true" stored="true" /> \
+    <field name="maxx" type="float" indexed="true" stored="true" /> \
+    <field name="maxy" type="float" indexed="true" stored="true" /> \
+    <field name="minx" type="float" indexed="true" stored="true" /> \
+    <field name="miny" type="float" indexed="true" stored="true" />'
 
-ENV SOLR_BBOX_FIELD '<field name="spatial_bbox" type="bbox" />'
-
-RUN sed -i "/<types>/a $SOLR_BBOX_FIELD_DEFINITION" $SOLR_SCHEMA_FILE
-RUN sed -i "/<fields>/a $SOLR_BBOX_FIELD" $SOLR_SCHEMA_FILE
+RUN sed -i "/<fields>/a $SOLR_BBOX_FIELDS" $SOLR_SCHEMA_FILE
 
 
-
-RUN chmod 644 $SOLR_SCHEMA_FILE 
+RUN chmod 644 $SOLR_SCHEMA_FILE
 
 USER solr
 
