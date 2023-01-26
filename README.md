@@ -17,7 +17,7 @@ The following versions are available as different image tags:
 | 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10` | |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
-| master | Solr 8 | `ckan/ckan-solr:master` | The `master` image is not automatically updated and might be out of date |
+| master | Solr 8 | `ckan/ckan-solr:master` | The `master` image is built nightly |
 
 The following tags are no longer supported:
 
