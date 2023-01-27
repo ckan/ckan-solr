@@ -11,12 +11,12 @@ You can get a local Solr instance targeting a specific CKAN version by running t
 
 The following versions are available as different image tags:
 
-| CKAN Version | Solr version | Docker tag |Notes |
-| --- | --- | --- | --- | --- |
-| 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8` | Requires at least CKAN 2.9.5 |
-| 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
+| CKAN Version | Solr version | Docker tag | Notes |
+| --- | --- | --- | --- |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10` | |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
+| 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8` | Requires at least CKAN 2.9.5 |
+| 2.9 | Solr 8 | `ckan/ckan-solr:2.9-solr8-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
 | master | Solr 8 | `ckan/ckan-solr:master` | The `master` image is built nightly |
 
 The following tags are no longer supported:
