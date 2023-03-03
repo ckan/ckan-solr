@@ -4,7 +4,7 @@ EXPOSE 8983
 
 ARG CKAN_BRANCH="dev-v2.10"
 
-ENV SOLR_INSTALL="/opt/solr/"
+ENV SOLR_INSTALL="/opt/solr"
 ENV SOLR_CONFIG_DIR="$SOLR_INSTALL/server/solr/configsets"
 ENV SOLR_SCHEMA_FILE="$SOLR_CONFIG_DIR/ckan/conf/managed-schema"
 
