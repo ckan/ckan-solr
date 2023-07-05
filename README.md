@@ -2,7 +2,7 @@
 
 Pre-configured Solr Docker images for CKAN.
 
-**Note:** These images are not vulnerable to CVE-2021-44228 / Log4J2 as are built on top of [patched upstream Solr images](https://github.com/docker-solr/docker-solr#readme).
+**Note:** These images are built on top of [the upstream Solr images](https://github.com/apache/docker-solr#readme). These images receive bug fixes from time to time which we pull into ours, but you won't get them unless you re-pull the CKAN Solr image.
 
 
 You can get a local Solr instance targeting a specific CKAN version by running the following command:
