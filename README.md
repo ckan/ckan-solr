@@ -31,26 +31,8 @@ The following tags are no longer supported:
 All these images expose the CKAN Solr endpoint at **http://localhost:8983/solr/ckan**, so that's what you should set the value of `solr_url` in your ini file to.
 
 
-Additionally, there is a `multi` image which contains cores for all CKAN Versions in the same Solr server:
-
-    docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:multi-solr6
-
-This will expose the following Solr endpoints (based on Solr 6):
-
-* http://localhost:8983/solr/ckan-2.7
-* http://localhost:8983/solr/ckan-2.8
-* http://localhost:8983/solr/ckan-2.9
-
-There is no multi image for Solr 8 yet.
 
 ### Building the images
-
-For Solr 6 based images (ie CKAN 2.6 to 2.9), go to the `solr-6` directory and use the Makefile included:
-
-    # Default version in 2.9
-    make build
-    make build CKAN_VERSION=2.8
-    make build-multi
 
 For the Solr 8 based image (ie CKAN 2.10), go to the `solr-8` directory and use the Makefile included:
 
