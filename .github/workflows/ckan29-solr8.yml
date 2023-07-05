@@ -1,0 +1,11 @@
+name: CKAN 2.9 on Python 3.9
+
+on: push
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      ckan_version: "2.9"
+      ckan_branch: "dev-v2.9"
+      solr_version: "8"
