@@ -1,0 +1,86 @@
+name: Reusable CKAN Test workflow
+
+on:
+  workflow_call:
+    inputs:
+      ckan_version:
+        required: true
+        type: string
+      ckan_branch:
+        required: true
+        type: string
+      solr_version:
+        required: true
+        type: string
+
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    services:
+      postgres:
+        image: ckan/ckan-postgres-dev:master
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:3
+        ports:
+          - 6379:6379
+    env:
+      # Given that CKAN is executed in the runner, we need to map service's port and set URL to localhost.
+      # We are avoiding the CKAN_ patterns since test should be run in strict mode
+      SQLALCHEMY_URL: postgresql://ckan_default:pass@localhost/ckan_test
+      DATASTORE_WRITE_URL: postgresql://datastore_write:pass@localhost/datastore_test
+      DATASTORE_READ_URL: postgresql://datastore_read:pass@localhost/datastore_test
+      SOLR_URL: http://localhost:8983/solr/ckan
+      REDIS_URL: redis://localhost:6379/1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Solr image
+        run: |
+          cd solr-${{ inputs.solr_version }}
+          make build CKAN_VERSION=${{ inputs.ckan_version }}
+          docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:${{ inputs.ckan_version }}-solr${{ inputs.solr_version }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Clone CKAN repositry
+        run: git clone https://github.com/ckan/ckan.git
+      - name: Checkout CKAN ${{ inputs.ckan_branch }}
+        run: |
+          cd ckan
+          git checkout ${{ inputs.ckan_branch }}
+      - name: Install requirements-setuptools.txt (CKAN 2.9 only)
+        if: ${{ inputs.ckan_branch == 'dev-v2.9'}}
+        run: |
+          cd ckan
+          pip install -r requirement-setuptools.txt
+          pip install wheel
+      - name: Install requirements and CKAN
+        run: |
+          cd ckan
+          pip install -U pip
+          pip install -r requirements.txt
+          pip install -r dev-requirements.txt
+          # Change to `pip install .` when #7221 is merged
+          pip install -e .
+          pip check
+      - name: Set config file
+        run: |
+          cd ckan
+          ckan config-tool test-core.ini sqlalchemy.url=${SQLALCHEMY_URL}
+          ckan config-tool test-core.ini ckan.datastore.write_url=${DATASTORE_WRITE_URL}
+          ckan config-tool test-core.ini ckan.datastore.read_url=${DATASTORE_READ_URL}
+          ckan config-tool test-core.ini solr_url=${SOLR_URL}
+          ckan config-tool test-core.ini ckan.redis.url=${REDIS_URL}
+      - name: Execute tests
+        run: |
+          cd ckan
+          ckan -c test-core.ini db init
+          pytest --ckan-ini=test-core.ini ckan/tests ckanext

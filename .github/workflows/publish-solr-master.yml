@@ -19,7 +19,7 @@ jobs:
       - name: Build ckan-solr master
         uses: docker/build-push-action@v3
         with:
-          context: solr-8
+          context: solr-9
           file: solr-8/Dockerfile
           build-args: |
             CKAN_BRANCH=master
