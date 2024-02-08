@@ -2,7 +2,7 @@
 
 Pre-configured Solr Docker images for CKAN.
 
-**Note:** These images are built on top of [the upstream Solr images](https://github.com/apache/docker-solr#readme). These images receive bug fixes from time to time which we pull into ours, but you won't get them unless you re-pull the CKAN Solr image.
+**Note:** These images are built on top of [the upstream Solr images](https://github.com/apache/solr-docker#readme). These images receive bug fixes from time to time which we pull into ours, but you won't get them unless you re-pull the CKAN Solr image.
 
 The recommended Solr version for the currently supported CKAN version is **[Solr 9](https://solr.apache.org/downloads.html#about-versions-and-support)**.
 
