@@ -1,8 +1,9 @@
-FROM solr:9
+ARG SOLR_VERSION=9.7
+FROM solr:${SOLR_VERSION}
 
 EXPOSE 8983
 
-ARG CKAN_BRANCH="dev-v2.10"
+ARG CKAN_BRANCH="dev-v2.11"
 
 ENV SOLR_CONFIG_DIR="/opt/solr/server/solr/configsets"
 ENV SOLR_SCHEMA_FILE="$SOLR_CONFIG_DIR/ckan/conf/managed-schema"

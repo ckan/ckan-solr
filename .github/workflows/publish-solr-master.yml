@@ -20,10 +20,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: solr-9
-          file: solr-8/Dockerfile
+          file: solr-9/Dockerfile
           build-args: |
             CKAN_BRANCH=master
           push: true
           tags: |
             ckan/ckan-solr:master
-
+            ckan/ckan-solr:master-solr9
+            ckan/ckan-solr:master-solr9.7
