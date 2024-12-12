@@ -16,7 +16,6 @@ The following versions are available as different image tags:
 | --- | --- | --- | --- |
 | **2.11** | **Solr 9** | `ckan/ckan-solr:2.11-solr9`,  `ckan/ckan-solr:2.11-solr9.7`| This is the recommended version if you are unsure which one to use |
 | 2.11 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial`,  `ckan/ckan-solr:2.10-solr9.7-spatial`| Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
-
 | 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9` |  |
 | 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10-solr8` (previously `ckan/ckan-solr:2.10`) | |
