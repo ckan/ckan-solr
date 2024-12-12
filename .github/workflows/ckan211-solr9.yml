@@ -1,0 +1,11 @@
+name: CKAN 2.11 with Solr 9
+
+on: push
+
+jobs:
+  call-reusable-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      ckan_version: "2.11"
+      ckan_branch: "dev-v2.11"
+      solr_version: "9"

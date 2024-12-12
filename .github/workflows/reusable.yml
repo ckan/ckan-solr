@@ -44,7 +44,7 @@ jobs:
       - name: Build Solr image
         run: |
           cd solr-${{ inputs.solr_version }}
-          make build CKAN_VERSION=${{ inputs.ckan_version }}
+          make build CKAN_VERSION=${{ inputs.ckan_version }} CKAN_BRANCH=${{ inputs.ckan_branch }}
           docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:${{ inputs.ckan_version }}-solr${{ inputs.solr_version }}
       - name: Set up Python
         uses: actions/setup-python@v4
