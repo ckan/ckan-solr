@@ -14,7 +14,7 @@ help:
 
 
 build:	## Build a Solr 9 image for a specific CKAN version, `make build CKAN_VERSION=2.11 CKAN_BRANCH=dev-v2.11` 
-	docker build -t $(TAG_NAME) -t $(ALT_TAG_NAME) --build-arg SOLR_VERSION=$(SOLR_VERSION) --build-arg SOLR_VERSION=$(SOLR_VERSION) .
+	docker build -t $(TAG_NAME) -t $(ALT_TAG_NAME) --build-arg CKAN_BRANCH=$(CKAN_BRANCH) --build-arg SOLR_VERSION=$(SOLR_VERSION) .
 	docker build -t $(TAG_NAME_SPATIAL) -t $(ALT_TAG_NAME_SPATIAL) -f Dockerfile.spatial --build-arg CKAN_BRANCH=$(CKAN_BRANCH)  --build-arg SOLR_VERSION=$(SOLR_VERSION) .
 
 push: ## Push an image to the Docker registry, `make push CKAN_VERSION=2.9` (default is 2.10)
