@@ -88,6 +88,10 @@ jobs:
           # Change to `pip install .` when #7221 is merged
           pip install -e .
           pip check
+      - name: Install requirements (CKAN 2.9 only)
+        if: ${{ inputs.ckan_branch == 'dev-v2.9'}}
+        run: |
+          pip install -u pytest-rerunfailures
       - name: Set config file
         run: |
           cd ckan
