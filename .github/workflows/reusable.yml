@@ -66,7 +66,7 @@ jobs:
           VERSION_IN_SCHEMA=$(
             docker run --rm \
             ckan/ckan-solr:${{ inputs.ckan_version }}-solr${{ inputs.solr_version }} \
-            grep -o "<schema name=\"ckan\" version=\"[0-9]\.[0-9]*" /opt/solr/server/solr/configsets/ckan/conf/managed-schema | cut -d'-' -f2
+            grep -o "<schema name=\"ckan\" version=\"[0-9]\.[0-9]*\"" /opt/solr/server/solr/configsets/ckan/conf/managed-schema | cut -d'"' -f4
           )
 
           if [ "$VERSION_IN_SCHEMA" != "${{ inputs.ckan_version }}" ]; then
