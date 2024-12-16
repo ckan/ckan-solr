@@ -106,7 +106,7 @@ jobs:
       - name: Install requirements (CKAN 2.9 only)
         if: ${{ inputs.ckan_branch == 'dev-v2.9'}}
         run: |
-          pip install -u pytest-rerunfailures
+          pip install -U pytest-rerunfailures
       - name: Set config file
         run: |
           cd ckan
