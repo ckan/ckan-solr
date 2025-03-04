@@ -1,8 +1,8 @@
 .PHONY: all help build build-all push
 SHELL := /bin/bash
 CKAN_VERSION=2.11
-CKAN_BRANCH=dev-v2.11
-SOLR_VERSION=9.7
+CKAN_BRANCH=dev-v$(CKAN_VERSION)
+SOLR_VERSION=9.8
 TAG_NAME="ckan/ckan-solr:$(CKAN_VERSION)-solr9"
 ALT_TAG_NAME="ckan/ckan-solr:$(CKAN_VERSION)-solr$(SOLR_VERSION)"
 TAG_NAME_SPATIAL="ckan/ckan-solr:$(CKAN_VERSION)-solr9-spatial"
