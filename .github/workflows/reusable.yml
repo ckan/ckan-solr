@@ -45,7 +45,24 @@ jobs:
         run: |
           cd solr-${{ inputs.solr_version }}
           make build CKAN_VERSION=${{ inputs.ckan_version }} CKAN_BRANCH=${{ inputs.ckan_branch }}
+
+      - name: Assert the image has the right schema version
+        run: |
+          VERSION_IN_SCHEMA=$(
+            docker run --rm \
+            ckan/ckan-solr:${{ inputs.ckan_version }}-solr${{ inputs.solr_version }} \
+            grep -o "<schema name=\"ckan-[0-9]\.[0-9]*" /opt/solr/server/solr/configsets/ckan/conf/managed-schema | cut -d'-' -f2
+          )
+
+          if [ "$VERSION_IN_SCHEMA" != "${{ inputs.ckan_version }}" ]; then
+            echo "Version in schema $VERSION_IN_SCHEMA does not match CKAN version ${{ inputs.ckan_version }}"
+            exit 1
+          fi
+
+      - name: Run the built image
+        run: |
           docker run --name ckan-solr -p 8983:8983 -d ckan/ckan-solr:${{ inputs.ckan_version }}-solr${{ inputs.solr_version }}
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
