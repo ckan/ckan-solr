@@ -62,7 +62,7 @@ If you want to play around with the solr config files you can copy them from the
 
 2. Copy the config file of the target core to your machine (eg `ckan`):
 
-       docker cp ckan-solr:/opt/solr/server/solr/ckan/conf ./my_conf
+       docker cp ckan-solr:/opt/solr/server/solr/configsets/ckan/conf ./my_conf
 
 3. Stop the container:
 
@@ -70,7 +70,7 @@ If you want to play around with the solr config files you can copy them from the
 
 4. Run the container with a bind mount:
 
-       docker run -p 8983:8983 --mount type=bind,source="$(pwd)"/my_conf,target=/opt/solr/server/solr/ckan/conf -d ckan/ckan-solr:2.10-solr9
+       docker run -p 8983:8983 --mount type=bind,source="$(pwd)"/my_conf,target=/opt/solr/server/solr/configsets/ckan/conf -d ckan/ckan-solr:2.11-solr9
 
 5. Edit your local files
 
