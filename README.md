@@ -14,13 +14,18 @@ The following versions are available as different image tags:
 
 | CKAN Version | Solr version | Docker tag | Notes |
 | --- | --- | --- | --- |
-| **2.11** | **Solr 9** | `ckan/ckan-solr:2.11-solr9`,  `ckan/ckan-solr:2.11-solr9.8`| This is the recommended version if you are unsure which one to use |
-| 2.11 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial`,  `ckan/ckan-solr:2.10-solr9.8-spatial`| Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
-| 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9`, `ckan/ckan-solr:2.10-solr9.8` |  |
-| 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial`, `ckan/ckan-solr:2.10-solr9.8-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
+| **2.11** | **Solr 9** | `ckan/ckan-solr:2.11-solr9`,  `ckan/ckan-solr:2.11-solr9.9`| This is the recommended version if you are unsure which one to use |
+| 2.11 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial`,  `ckan/ckan-solr:2.10-solr9.9-spatial`| Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
+| 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9`, `ckan/ckan-solr:2.10-solr9.9` |  |
+| 2.10 | Solr 9 | `ckan/ckan-solr:2.10-solr9-spatial`, `ckan/ckan-solr:2.10-solr9.9-spatial` | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10-solr8` (previously `ckan/ckan-solr:2.10`) | |
 | 2.10 | Solr 8 | `ckan/ckan-solr:2.10-solr8-spatial` (previously `ckan/ckan-solr:2.10-spatial`) | Contains fields needed for the [ckanext-spatial](https://docs.ckan.org/projects/ckanext-spatial/en/latest/spatial-search.html) geo search |
 | master | Solr 9 | `ckan/ckan-solr:master` | The `master` image is built nightly |
+
+> [!NOTE]
+> Starting from Solr 9.8 there are tags specific to the Solr minor version, e.g. `ckan/ckan-solr:2.11-solr9.9` and `ckan/ckan-solr:2.11-solr9.8`
+
+
 
 The following tags are no longer supported:
 
