@@ -27,4 +27,4 @@ jobs:
           tags: |
             ckan/ckan-solr:master
             ckan/ckan-solr:master-solr9
-            ckan/ckan-solr:master-solr9.7
+            ckan/ckan-solr:master-solr9.9
