@@ -66,7 +66,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: 3.10
+          python-version: '3.10'
       - name: Clone CKAN repositry
         run: git clone https://github.com/ckan/ckan.git
       - name: Checkout CKAN ${{ inputs.ckan_branch }}
